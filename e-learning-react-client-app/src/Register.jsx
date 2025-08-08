@@ -1,80 +1,43 @@
-// import React, { useEffect, useState } from 'react';
-
-// const CorsGreeting = () => {
-//   const [message, setMessage] = useState('');
-//   const [error, setError] = useState(null);
-
-//   useEffect(() => {
-//     fetch('https://opulent-parakeet-v655w7pjpjx929vp-5177.app.github.dev/test/greeting', {
-//       method: 'GET',
-//       headers: {
-//         'Content-Type': 'application/json'
-//       }
-//     })
-//       .then(response => {
-//         if (!response.ok) {
-//           throw new Error(`Server responded with ${response.status}`);
-//         }
-//         return response.text(); // Since your controller returns a plain string
-//       })
-//       .then(data => setMessage(data))
-//       .catch(err => setError(err.message));
-//   }, []);
-
-//   return (
-//     <div>
-//       <h2>CORS Test</h2>
-//       {error ? (
-//         <p style={{ color: 'red' }}>Error: {error}</p>
-//       ) : (
-//         <p>Server says: {message}</p>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default CorsGreeting;
-
 import React, { useState } from "react";
-import "./AuthForm.css"; // ✅ Import shared CSS
+import axios from "axios";
+import "./auth.css"; // ✅ Import your CSS file
 
 function Register() {
-  // const [id, setId]= useState("");
   const [name, setName] = useState("");
   const [role, setRole] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSubmit =  (e) => {
-  e.preventDefault();
-  try {
-    const response =  fetch("https://opulent-parakeet-v655w7pjpjx929vp-5177.app.github.dev/api/users/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        "https://opulent-parakeet-v655w7pjpjx929vp-5177.app.github.dev/api/users/register",
+        {
+          name,
+          role,
+          email,
+          password,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
-  "name": "pav",
-  "role": "student",
-  "email": "pav1@gmail.com",
-  "password": "pav@123"
-})
-    });
-
-    const data =  response.json();
-    if (data.success) {
-      setMessage("Registration successful");
-    } else {
-      setMessage(data.message || "Registration failed");
+      if (response.data) {
+        console.log(response.data);
+        setMessage("Registration successful");
+      } else {
+        setMessage(response.data.message || "Registration failed");
+      }
+    } catch (error) {
+      console.error("Backend response:", error.response?.data || error.message);
+      setMessage("An error occurred during registration");
     }
-  } catch(error) {
-  console.error("Backend response:", error.response?.data || error.message);
-};
-
-};
-
+  };
 
   return (
     <div className="auth-page">
@@ -87,13 +50,10 @@ function Register() {
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
-          <select
-            value={role}
-            onChange={(e) => setRole(e.target.value)}
-          >
+          <select value={role} onChange={(e) => setRole(e.target.value)}>
             <option value="">Select Role</option>
-            <option value="instructor">instructor</option>
-            <option value="student">student</option>
+            <option value="instructor">Instructor</option>
+            <option value="student">Student</option>
           </select>
           <input
             type="email"
