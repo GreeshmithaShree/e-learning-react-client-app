@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import axios from "axios";
-import "./auth.css"; // ✅ Import your CSS file
-
+import axios from "axios"; // ✅ Import your CSS file
+import './auth.css';
 function Register() {
   const [name, setName] = useState("");
   const [role, setRole] = useState("");
@@ -13,7 +12,7 @@ function Register() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://opulent-parakeet-v655w7pjpjx929vp-5177.app.github.dev/api/users/register",
+        "https://psychic-eureka-97xxw4r66wv53v96-5177.app.github.dev/api/users/register",
         {
           name,
           role,
@@ -40,7 +39,7 @@ function Register() {
   };
 
   return (
-    <div className="auth-page">
+    <div class="form-container">
       <div className="auth-box">
         <h2>Register</h2>
         <form onSubmit={handleSubmit}>
@@ -52,8 +51,8 @@ function Register() {
           />
           <select value={role} onChange={(e) => setRole(e.target.value)}>
             <option value="">Select Role</option>
-            <option value="instructor">Instructor</option>
-            <option value="student">Student</option>
+            <option value="instructor">instructor</option>
+            <option value="student">student</option>
           </select>
           <input
             type="email"
