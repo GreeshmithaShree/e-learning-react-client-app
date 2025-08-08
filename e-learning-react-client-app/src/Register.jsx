@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios"; // ✅ Import your CSS file
 import './auth.css';
+import { useNavigate } from "react-router-dom";
+
 function Register() {
   const [name, setName] = useState("");
   const [role, setRole] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
-
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -25,10 +27,10 @@ function Register() {
           },
         }
       );
-
       if (response.data) {
         console.log(response.data);
         setMessage("Registration successful");
+        navigate('/login');
       } else {
         setMessage(response.data.message || "Registration failed");
       }
@@ -37,9 +39,8 @@ function Register() {
       setMessage("An error occurred during registration");
     }
   };
-
   return (
-    <div class="form-container">
+    <div className="form-container">
       <div className="auth-box">
         <h2>Register</h2>
         <form onSubmit={handleSubmit}>
