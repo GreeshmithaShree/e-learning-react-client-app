@@ -7,7 +7,7 @@ const SubmissionHome = () => (
     <h2>Submissions Section</h2>
     <ul>
       <li><Link to="/submissions/create">Create Submission</Link></li>
-      <li><Link to="/submissions/:id">Get Submission by Id</Link></li>
+      <li><Link to="/submissions">Get All Submissions</Link></li>
       <li><Link to="/submissions/update/:id">Update Submission by Id</Link></li>
       <li><Link to="/submissions/delete/:id">Delete Submission by Id</Link></li>
     </ul>

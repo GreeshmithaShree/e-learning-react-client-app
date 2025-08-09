@@ -8,7 +8,7 @@ const GetSubmissions = () => {
   useEffect(() => {
     const fetchSubmissions = async () => {
       try {
-        const response = await axios.get('https://psychic-eureka-97xxw4r66wv53v96-5177.app.github.dev/api/Submissions'); // 🔁 Replace with your actual endpoint
+        const response = await axios.get('https://psychic-eureka-97xxw4r66wv53v96-5177.app.github.dev/api/submissions'); // 🔁 Replace with your actual endpoint
         setSubmissions(response.data);
       } catch (err) {
         console.error('❌ Failed to fetch submissions:', err.message);

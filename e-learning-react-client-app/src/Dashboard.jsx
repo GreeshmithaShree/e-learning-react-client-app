@@ -9,11 +9,11 @@ const Dashboard = () => {
       <p>Select a section to manage:</p>
 
       <ul>
-        <li><Link to="/courses">📚 Courses</Link></li>
-        <li><Link to="/assessments">📝 Assessments</Link></li>
-        <li><Link to="/users">👥 Users</Link></li>
-        <li><Link to="/submissions">📄 Submissions</Link></li>
-        <li><Link to="/enrollments">🎓 Enrollments</Link></li>
+        <li><Link to="/user">👥 Users</Link></li>
+        <li><Link to="/course">📚 Courses</Link></li>
+        <li><Link to="/assessment">📝 Assessments</Link></li>
+        <li><Link to="/enrollment">🎓 Enrollments</Link></li>
+        <li><Link to="/submission">📄 Submissions</Link></li>
       </ul>
     </div>
   );

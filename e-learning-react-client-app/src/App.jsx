@@ -48,25 +48,25 @@ function App() {
          <Route path="/dashboard" element={<Dashboard />} />
 
         {/* Section Homes */}
-        <Route path="/courses" element={<CourseHome />} />
-        <Route path="/assessments" element={<AssessmentHome />} />
-        <Route path="/users" element={<UserHome />} />
-        <Route path="/submissions" element={<SubmissionHome />} />
-        <Route path="/enrollments" element={<EnrollmentHome />} />
+        <Route path="/user" element={<UserHome />} />
+        <Route path="/Course" element={<CourseHome />} />
+        <Route path="/Assessment" element={<AssessmentHome />} />
+        <Route path="/Enrollment" element={<EnrollmentHome />} />
+        <Route path="/Submission" element={<SubmissionHome />} />
 
-        <Route path="/user" element={<UserList />} />
+        <Route path="/users" element={<UserList />} />
         <Route path="/users/:id" element={<GetUserById />} />
         <Route path="/users/update/:id" element={<UpdateUser />} />
         <Route path="/users/delete/:id" element={<DeleteUser />} />
 
         <Route path="/courses/create" element={<CreateCourse />} />
-        <Route path="/course" element={<AllCourses />} />
+        <Route path="/courses" element={<AllCourses />} />
         <Route path="/courses/:id" element={<CourseDetails />} />
         <Route path="/courses/update/:id" element={<UpdateCourse />} />
         <Route path="/courses/delete/:id" element={<DeleteCourse />} />
 
         <Route path="/assessments/create" element={<CreateAssessment />} />
-        <Route path="/assessment" element={<AssessmentList />} />
+        <Route path="/assessments" element={<AssessmentList />} />
         <Route path="/assessments/:id" element={<GetAssessmentById />} />
         <Route path="/assessments/update/:id" element={<UpdateAssessment />} />
         <Route path="/assessments/delete/:id" element={<DeleteAssessment />} />
@@ -77,7 +77,7 @@ function App() {
         <Route path="/enrollment/delete/:id" element={<DeleteEnrollment />} />
 
         <Route path="/submissions/create" element={<PostSubmission />} />
-        <Route path="/submission" element={<GetSubmissions />} />
+        <Route path="/submissions" element={<GetSubmissions />} />
         <Route path="/submissions/update/:id" element={<UpdateSubmission />} />
         <Route path="/submissions/delete/:id" element={<DeleteSubmission />} />
       </Routes>
