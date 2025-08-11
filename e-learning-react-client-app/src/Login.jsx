@@ -57,6 +57,12 @@ const Login = () => {
           {message}
         </p>
       )}
+      <p>
+        Don’t have an account?{" "}
+        <button className="link-button" onClick={() => navigate("/register")}>
+          Register
+        </button>
+      </p>
     </div>
   );
 };
